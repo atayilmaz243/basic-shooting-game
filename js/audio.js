@@ -1,6 +1,6 @@
 const audio = {
     shoot : new Howl({
-        src: '../audio/shoot.wav',
+        src: 'https://storage.googleapis.com/shooting-game/audio/shoot.wav',
         volume: 0.04
     }),
     death : new Howl({
