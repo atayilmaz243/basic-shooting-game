@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas1" width="200" height="200" style="border:1px solid #000000;">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("canvas1");
+var ctx = canvas.getContext("2d");
+var angleInDegrees = 0; // Start angle
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+    // Convert degrees to radians
+    ctx.save();
+    var angleInRadians = angleInDegrees * Math.PI / 180;
+
+    // Reset transformation matrix to the identity matrix
+    // Rotate around the center of the canvas
+    ctx.translate(100,100)
+    // ctx.rotate(angleInRadians);
+    
+    ctx.rotate(angleInDegrees*Math.PI/180)
+    
+    // Draw rectangle (rotation around center of canvas)
+    ctx.fillRect(-10,-20 , 20, 40); // Adjusted to draw from center
+    ctx.fillStyle = 'red'
+    ctx.fillRect(-1,-1 , 2, 2); // Adjusted to draw from center
+    
+
+    // Increment angle
+    angleInDegrees++;
+    if (angleInDegrees >= 360) {
+        angleInDegrees = 0; // Reset angle after a full rotation
+    }
+    ctx.restore();
+}
+
+// Redraw every second
+setInterval(draw, 10);
+</script>
+
+</body>
+</html>
